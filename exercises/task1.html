@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var task = ["take out the garbage", "read a book", "write javascript", "go to work"];
+        var progress = ["done", "in progress", "to do"];
+
+        var lastItem= task[task.length-1];
+        alert("last item : "+lastItem);
+
+        var newTask = prompt("Add a new task");
+        task[task.length] = newTask;
+        console.log(task[task.length-1]);
+         
+
+        // var question1 = prompt("Which task 1-"+task.length+"?");
+        // var question2 = prompt("Specify the Status: 1= done, 2 = in Progress, 3= to do");
+
+
+        // console.log("Today you will " + task[question1 - 1] +", task: "+progress[question2-1]);
+        
+
+    </script>
+
+</body>
+</html>

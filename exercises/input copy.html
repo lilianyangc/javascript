@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td, th {
+            border: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Task List </h3>
+
+    <input type="text" id="myText"></input>
+    <button onclick="myFunc()">Add new task</button>
+    <button onclick="myTableFunc()">Add a cell</button>
+
+
+    <!-- Create a table with CRUD -->
+    <div id="list"></div>
+    <table id="table"></table>
+
+
+
+    <script>
+        var myList = ["first", "second", "third"];
+        var list;
+
+        var x = document.createElement("TABLE");
+        x.setAttribute("id", "myTable");
+        document.body.appendChild(x);
+
+       
+
+         function myFunc(){
+            var userInput = document.getElementById("myText").value;
+
+            // Added to list
+            myList[myList.length] = userInput;
+
+            // Get the last item and add it to list table
+            addLiNode(myList.length-1);
+        }
+
+        function myListFunc(){
+                        
+            list = document.createElement("ul");            
+            for (var i=0; i < myList.length; i++){
+                addLiNode(i)
+            }
+            return list;
+        }
+
+        function myTableFunc(){
+
+            for (var i=0; i < myList.length; i++){
+
+                var y = document.createElement("TR");
+                    y.setAttribute("id", "myTr");
+                    document.getElementById("myTable").appendChild(y);
+
+                var z = document.createElement("TD");
+                var t = document.createTextNode(myList[i]);
+                z.appendChild(t);
+                document.getElementById("myTr").appendChild(z);
+            }
+            // var t = document.createTextNode("cell");
+
+        }
+
+
+
+        // Add to list table
+        function addLiNode(i){
+            var item = document.createElement("li");
+                item.appendChild(document.createTextNode(myList[i]));
+                list.appendChild(item);
+        }
+
+        function addTdNode(i){
+            var item = document.createElement("td");
+                item.appendChild(document.createTextNode(myList[i]));
+                list.appendChild(item);
+        }
+
+        document.getElementById("list").appendChild(myListFunc())
+        document.getElementById("table").appendChild(myTableFunc())
+
+
+    </script>
+</body>
+</html>

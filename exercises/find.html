@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        var myArr= [3,4,5,6,57,80];
+        myArr.sort();
+        var q= prompt("What do you want to remove?");
+        var finder = myArr.indexOf(Number(q));
+        // var value = myArr.splice(finder,1);
+        console.log(finder);
+        
+        var v = (finder > -1)? myArr.splice(finder,1) : alert("Failed, choose another number");
+        console.log(v);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var animals= ["cat", "dog", "rabbit", "cow", "deer"];
+
+        // var userChoice= prompt("Choose a number from 1-3");
+        // var chosenAnimal = animals[Number(userChoice)-1];
+        // alert(animals[Number(userChoice)-1]);
+
+        var randomIndex = Math.floor(Math.random()*animals.length);
+        var randAnimal = animals[randomIndex];
+        alert(randomIndex+": "+randAnimal);
+        
+    </script>
+</body>
+</html>

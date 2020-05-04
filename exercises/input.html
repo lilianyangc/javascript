@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Task List </h3>
+
+    <input type="text" id="myText"></input>
+    <button onclick="myFunc()">Add new task</button>
+
+    <!-- Create a table with CRUD -->
+    <div id="list">
+        <div id= "sample"></div>
+    </div>
+    <table id="table"></table>
+
+    <script>
+        var myList = ["first", "second", "third"];
+        var list;
+ 
+
+         function myFunc(){
+            var userInput = document.getElementById("myText").value;
+
+            // Added to list
+            myList[myList.length] = userInput;
+
+            // Get the last item and add it to list table
+            addLiNode(myList.length-1);
+        }
+
+        function myListFunc(myList){
+                        
+            list = document.createElement("ul");   
+            list.setAttribute("id", "listItems")         
+            for (var i=0; i < myList.length; i++){
+                addLiNode(i)
+            }
+            return list;
+        }
+
+
+        // Add to list table
+        function addLiNode(i){
+            var item = document.createElement("li");
+                item.setAttribute("id", i);
+               
+            var btnDel = document.createElement("button");
+                btnDel.setAttribute("id",i);
+                btnDel.setAttribute("onclick","deleteItem("+i+")");
+                btnDel.appendChild(document.createTextNode("Delete"));
+                item.appendChild(document.createTextNode(myList[i]));
+                item.appendChild(btnDel);
+                list.appendChild(item);
+        }
+
+        // Delete Items in the list
+        function deleteItem(i){  
+
+            myList.splice(i,1);
+            refresh();
+        }
+
+        function refresh(){
+            var sample = document.getElementById("sample");
+            var list = document.getElementById("listItems");
+            list.remove();
+            var newList = document.createElement("div");
+            newList.setAttribute("id","listItems");
+            sample.appendChild(newList);
+            newList.appendChild(myListFunc(myList));
+        }
+
+        document.getElementById("sample").appendChild(myListFunc(myList));
+
+    </script>
+</body>
+</html>
