@@ -28,7 +28,7 @@
 
         function toss(choice){  
             userChoice = document.getElementById("userChoice");
-            userChoice.innerHTML= choice;
+            userChoice.innerHTML= myArray[choice];
             
             var sysChoice = Math.floor(Math.random()*myArray.length);            
             console.log(sysChoice);
