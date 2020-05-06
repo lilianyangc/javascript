@@ -9,5 +9,40 @@
     <h2>
         Coin Toss
     </h2>
+    <button onclick="toss(0)">Head</button>
+    <button onclick="toss(1)">Tails</button>
+
+    <br>
+    <h3>Result</h3>
+    <h4>Your choice:</h4>
+    <div id="userChoice"></div>
+    <br>
+    <br>
+    <h4>Toss Result:</h4>
+    <div id="result"></div>
+
+    <script>
+        var myArray= ['head', 'tails'];
+        var resultDiv;
+        var userChoice;
+
+        function toss(choice){  
+            userChoice = document.getElementById("userChoice");
+            userChoice.innerHTML= choice;
+            
+            var sysChoice = Math.floor(Math.random()*myArray.length);            
+            console.log(sysChoice);
+            resultDiv = document.getElementById("result");
+            if(sysChoice === choice){
+                resultDiv.innerHTML = "You win :) !";
+            }else{
+                resultDiv.innerHTML = "You lose :( !";
+            }
+            
+          
+        }
+
+
+    </script>
 </body>
 </html>

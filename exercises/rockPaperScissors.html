@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="user(0)">Rock</button>
+    <button onclick="user(1)">Paper</button>
+    <button onclick="user(2)">Scissors</button>
+    
+    <h3>User choice:</h3>
+    <div id="userChoice"></div>
+    <br>
+    <br>
+    <h3>Computer choice:</h3>
+    <div id="pcChoice"></div>
+    <h3>Result:</h3>
+    <div id="result"></div>
+
+
+
+    <script>
+        var list =["Rock","Paper", "Scissors"]
+        var pcChoice = document.getElementById("pcChoice");
+        var result = document.getElementById("result");
+        var userChoice;
+
+        function user(choice){
+
+            userChoice = document.getElementById("userChoice");
+            userChoice.innerHTML= choice;
+
+            userChoice.innerHTML = list[choice];
+            var computer = Math.random();
+            // console.log(computer);
+            if(computer < 0.34){
+                computer = "Rock"
+            }else if(computer < 0.67){
+                computer = "Paper"
+            }else{
+                computer = "Scissors"
+            }
+
+            pcChoice.innerHTML = computer;
+            
+            if(computer === list[choice]){
+                result.innerHTML = "Draw";
+            } 
+
+            if(computer == "Paper" && list[choice] == "Scissors"){
+                result.innerHTML = "Player wins!";
+
+            }
+
+            if(list[choice] == "Paper" && computer == "Scissors"){
+                result.innerHTML = "Computer wins!"
+            }
+
+            if(computer == "Scissors" && list[choice] == "Rock"){
+                result.innerHTML = "Player wins!";
+
+            }
+
+            if(list[choice] == "Scissors" && computer == "Rock"){
+                result.innerHTML = "Computer wins!";
+
+            }
+
+            if(computer == "Rock" && list[choice] == "Paper"){
+                result.innerHTML = "Player wins!";
+
+            }
+
+            if(list[choice] == "Rock" && computer == "Paper"){
+                result.innerHTML = "Computer wins!";
+
+            }
+        
+        }
+
+    </script>
+</body>
+</html>

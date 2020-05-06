@@ -7,5 +7,50 @@
 </head>
 <body>
     <h2>Eight Ball</h2>
+
+    <h3>Ask me anything :)</h3>
+    <input id="question"></input>
+    <button onclick="ask()">Ask</button>
+
+    <h3>Result:</h3>
+    <h4 id="result">result here :)</h4>
+
+    <script>
+        var result;
+
+        function ask(){
+            var question = document.getElementById("question");
+            var chosenAnswer = document.getElementById("result");
+            var answer = Math.floor(Math.random()*4);
+
+            if(question.value != ""){
+
+                switch(answer){
+                case 0:
+                    result = "It will work out";
+                break;
+                case 1:
+                    result = "Maybe maybe not";
+                break;
+                case 2:
+                    result= "Probably not";
+                break;
+                case 3:
+                    result= "Highly likely";
+                break;
+                default:
+                    result = "A don't know about that";
+                }
+
+                chosenAnswer.innerHTML = result;
+
+            }else{
+
+                chosenAnswer.innerHTML = "Please enter a question."
+            }
+           
+
+        }
+    </script>
 </body>
 </html>
